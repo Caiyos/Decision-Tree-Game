@@ -12,7 +12,7 @@
 namespace game {
 
     // Iniciar o jogo
-    int run();
+    void run();
 
 }
 

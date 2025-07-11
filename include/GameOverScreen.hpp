@@ -1,0 +1,18 @@
+#ifndef GAMEOVERSCREEN_HPP
+#define GAMEOVERSCREEN_HPP
+
+#include "IScreen.hpp"
+#include "ScreenContext.hpp"
+
+class GameOverScreen : public IScreen {
+private:
+    ScreenContext* context;
+    std::string message;
+
+public:
+    GameOverScreen(ScreenContext* ctx, std::string message);
+    void display() override;
+    void handleInput(char choice) override;
+};
+
+#endif // GAMEOVERSCREEN_HPP
