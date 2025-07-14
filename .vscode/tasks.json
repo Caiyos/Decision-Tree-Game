@@ -18,6 +18,7 @@
                 "src/RulesScreen.cpp",
                 "src/GameScreen.cpp",
                 "src/GameOverScreen.cpp",
+                "src/simpleList.cpp",
                 "-o",
                 "build/main.exe"
             ],

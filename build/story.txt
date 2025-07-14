@@ -1,0 +1,15 @@
+100;Você acorda em uma cabana escura. Sair pela porta?;1
+150;Você ouve passos lá fora. Esconder-se debaixo da cama?;1
+50;Você encontra uma faca na cozinha. Pegar a faca?;1
+175;A porta se abre lentamente. Ficar imóvel?;1
+125;Você vê uma janela aberta. Pular pela janela?;1
+75;Você ouve um grito vindo do porão. Investigar?;1
+25;Você encontra um telefone sem sinal. Tentar consertar?;1
+188;Você sobreviveu à noite!;1
+162;A criatura te encontra.;0
+138;Você escapa pela floresta!;1
+112;Você cai e se machuca.;0
+88;Você encontra um sobrevivente!;1
+62;O grito era uma armadilha.;0
+38;O telefone funciona! Resgate a caminho.;1
+12;Você faz barulho e é encontrado.;0
