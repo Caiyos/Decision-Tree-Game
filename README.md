@@ -1,2 +1,2 @@
 # DecisionTreeGame
-This repository contains a C++ adventure game project. The core of the game involves players making strategic decisions that navigate them through a branching narrative, where their choices determine the outcome of their journey. The game's structure is built upon a decision tree.
+This repository contains a C++ game project. The core of the game involves players making decisions that navigate them through a branching narrative. The game's structure is built upon a decision tree.
