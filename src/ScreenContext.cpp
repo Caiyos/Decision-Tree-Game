@@ -1,13 +1,26 @@
 #include "ScreenContext.hpp"
 
+// Construtor inicializa ponteiro como nulo
+ScreenContext::ScreenContext()
+  : gameTreeRoot(nullptr)
+{}
+
+void ScreenContext::setGameTreeRoot(searchTree::TreeNode* root) {
+    gameTreeRoot = root;
+}
+
+searchTree::TreeNode* ScreenContext::getGameTreeRoot() const {
+    return gameTreeRoot;
+}
+
 void ScreenContext::setState(IScreen* state) {
-    currentState = state;
+    currentScreen = state;
 }
 
 void ScreenContext::display() {
-    if (currentState) currentState->display();
+    if (currentScreen) currentScreen->display();
 }
 
 void ScreenContext::handleInput(char choice) {
-    if (currentState) currentState->handleInput(choice);
+    if (currentScreen) currentScreen->handleInput(choice);
 }

@@ -1,20 +1,24 @@
 #ifndef SEARCHTREE_HPP_INCLUDED
 #define SEARCHTREE_HPP_INCLUDED
 
+#include <string>
+
 namespace searchTree {
 
-    typedef struct node {
-        int info;
-        struct node *left, *right;
-    }Node;
+    typedef struct treeNode {
+        std::string text;
+        int id;
+        bool alive;
+        struct treeNode *left, *right;
+    }TreeNode;
 
-    Node* insert(Node *root, int info);
+    TreeNode* insert(TreeNode *root, std::string text, int id, bool alive);
 
-    Node* remove(Node *root, int key);
+    // Node* remove(Node *root, int key);
 
-    int search(Node *root, int key);
+    // int search(Node *root, int key);
 
-    void printTree(Node* root);
+    void printTree(TreeNode* root);
     
 }
 

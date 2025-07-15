@@ -1,11 +1,10 @@
 #include <iostream>
 
-#include "game.hpp"
+#include "DecisionTreeGame.hpp"
 
 int main()
 {
-    // Iniciar o jogo
-    game::run();
-
+    DecisionTreeGame game;
+    game.run();
     return 0;
 }

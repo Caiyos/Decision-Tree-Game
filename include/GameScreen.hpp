@@ -5,22 +5,16 @@
 
 #include "IScreen.hpp"
 #include "ScreenContext.hpp"
+#include "searchTree.hpp"
 
 class GameScreen : public IScreen {
 private:
-    typedef struct DecisionNode {
-        std::string question;
-        bool go;
-
-        DecisionNode* yes;
-        DecisionNode* no;
-    } DecisionNode;
+    using TreeNode = searchTree::TreeNode;
 
     ScreenContext* context;
-    DecisionNode* root;
-    DecisionNode* currentNode;
-    
-    void setupGame();
+    TreeNode* root;         
+    TreeNode* currentNode;  
+
     void checkGameOver();
 
 public:

@@ -4,12 +4,14 @@
 
 namespace searchTree {
 
-    Node* insert(Node *root, int info)
+    TreeNode* insert(TreeNode *root, std::string text, int id, bool alive)
     {
         if(root == nullptr)
         {
-            Node *newNode = new Node;
-            newNode->info = info;
+            TreeNode *newNode = new TreeNode;
+            newNode->text = text;
+            newNode->id = id;
+            newNode->alive = alive;
             newNode->left = nullptr;
             newNode->right = nullptr;
 
@@ -17,13 +19,13 @@ namespace searchTree {
         }
         else
         {
-            if(info < root->info)
+            if(id < root->id)
             {
-                root->left = insert(root->left, info);
+                root->left = insert(root->left, std::string(text), id, alive);
             }
-            if(info > root->info)
+            if(id > root->id)
             {
-                root->right = insert(root->right, info);
+                root->right = insert(root->right, std::string(text), id, alive);
             }
 
             return root;
@@ -31,6 +33,7 @@ namespace searchTree {
 
     }
 
+    /*
     Node* remove(Node *root, int key)
     {
         Node *temp;
@@ -84,7 +87,9 @@ namespace searchTree {
             return root;
         }
     }
+    */
 
+    /*
     int search(Node *root, int key)
     {
         if(root == nullptr)
@@ -104,13 +109,14 @@ namespace searchTree {
             return search(root->right, key);
         }
     }
+    */
 
-    void printTree(Node* root)
+    void printTree(TreeNode* root)
     {
         if(root != nullptr)
         {
             printTree(root->left);
-            std::cout << root->info << std::endl;
+            std::cout << root->id << " - " << root->text << " - " << (root->alive ? "Vivo" : "Morto") << std::endl;
             printTree(root->right);
         }
     }

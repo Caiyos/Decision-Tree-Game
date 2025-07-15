@@ -1,6 +1,8 @@
 #ifndef SIMPLELIST_HPP_INCLUDED
 #define SIMPLELIST_HPP_INCLUDED
 
+#include <string>
+
 namespace simpleList {
 
     typedef struct listNode{
