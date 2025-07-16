@@ -33,6 +33,7 @@ public:
     ~DecisionTreeGame();
 
     searchTree::TreeNode* getGameTreeRoot();
+    simpleList::ListNode* getGameListHead();
 
     // API pública
     void run();

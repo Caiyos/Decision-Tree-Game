@@ -10,7 +10,7 @@ private:
     std::string message;
 
 public:
-    GameOverScreen(ScreenContext* ctx, std::string message);
+    GameOverScreen(ScreenContext* ctx);
     void display() override;
     void handleInput(char choice) override;
 };

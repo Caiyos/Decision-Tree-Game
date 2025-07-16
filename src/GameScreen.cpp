@@ -34,7 +34,10 @@ void GameScreen::checkGameOver() {
         } else {
             message = currentNode->text + " Boa sorte na próxima tentativa.";
         }
-        context->setState(new GameOverScreen(context, message));
+
+        context->setFinalMessage(message);
+        
+        context->setState(new GameOverScreen(context));
     }
 }
 

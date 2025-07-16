@@ -104,11 +104,17 @@ searchTree::TreeNode* DecisionTreeGame::getGameTreeRoot()
     return treeRoot;
 }
 
+simpleList::ListNode* DecisionTreeGame::getGameListHead()
+{
+    return listHead;
+}
+
 void DecisionTreeGame::run()
 {
     char choice;
 
     context.setGameTreeRoot(treeRoot);
+    context.setGameListHead(listHead);
     context.setState(new MainMenuScreen(&context));
 
     while (isRunning) {
