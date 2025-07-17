@@ -3,9 +3,10 @@
 #include "GameScreen.hpp"
 #include "MainMenuScreen.hpp"
 #include "GameOverScreen.hpp"
+#include "ScreenContext.hpp"
 
 GameScreen::GameScreen(ScreenContext* ctx)
-  : context(ctx)
+  : IScreen(ctx), context(ctx)
 {
   // busca a raiz no Context
   root = context->getGameTreeRoot();
@@ -29,15 +30,19 @@ void GameScreen::checkGameOver() {
     if (!currentNode->left && !currentNode->right) 
     {
         std::string message;
-        if (currentNode->alive) {
+        bool isWin = currentNode->alive; 
+
+        if (isWin) {
             message = "Parabéns! " + currentNode->text;
-        } else {
+        } 
+        else {
             message = currentNode->text + " Boa sorte na próxima tentativa.";
         }
 
         context->setFinalMessage(message);
-        
+        context->setGameResult(isWin);
         context->setState(new GameOverScreen(context));
+        
     }
 }
 

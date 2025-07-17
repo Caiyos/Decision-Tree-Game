@@ -3,7 +3,7 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build all",
-            "command": "C:/MinGW64/bin/g++.exe",
+            "command": "C:/MinGW/bin/g++.exe",
             "args": [
                 "-Wall",
                 "-fexceptions",
@@ -23,6 +23,10 @@
                 "src/GameOverScreen.cpp",
                 "src/searchTree.cpp",
                 "src/simpleList.cpp",
+                "src/pairList.cpp",
+                "src/PlayerNameScreen.cpp",
+                "src/RankingScreen.cpp",
+                "src/SinglePlayerStatsScreen.cpp",
                 "-o",
                 "build/main.exe"
             ],

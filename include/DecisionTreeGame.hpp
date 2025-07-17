@@ -5,6 +5,9 @@
 #include "simpleList.hpp"
 #include "searchTree.hpp"
 
+#include "pairList.hpp"
+#include "PlayerData.hpp"
+
 class DecisionTreeGame {
 private:
     // Estado de execução
@@ -18,6 +21,8 @@ private:
     simpleList::ListNode* listHead;
     searchTree::TreeNode* treeRoot;
 
+    pairList::PlayerListNode* playerListHead;
+    std::string currentPlayerName;
     // Contexto de telas (menus, jogo, game over...)
     ScreenContext context;
 
@@ -26,14 +31,17 @@ private:
     // void highestScoreUpdate();
     void buildList();
     void buildTree();
-
+    void loadAllPlayersData();
+    void saveAllPlayersData();
+    PlayerData* getCurrentPlayerData();
+    
 public:
-    // Construtor e destrutor
     DecisionTreeGame();
     ~DecisionTreeGame();
 
     searchTree::TreeNode* getGameTreeRoot();
     simpleList::ListNode* getGameListHead();
+    pairList::PlayerListNode* getGamePlayerDataHead();
 
     // API pública
     void run();

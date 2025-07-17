@@ -1,11 +1,27 @@
 #include "ScreenContext.hpp"
+#include "MainMenuScreen.hpp"
+#include "PlayerNameScreen.hpp" 
+#include <iostream>
 
-// Construtor inicializa ponteiro como nulo
 ScreenContext::ScreenContext()
-  : gameTreeRoot(nullptr),
-    gameListHead(nullptr),
-    finalMessage("")
-{}
+    : currentScreen(nullptr),
+      gameTreeRoot(nullptr),
+      gameListHead(nullptr),
+      finalMessage(""),
+      gamePlayerDataHead(nullptr), 
+      currentPlayerName(""),
+      currentPlayerDataPtr(nullptr), 
+      gameEndedThisTurn(false),
+      lastGameWasWin(false),
+      requestSaveData(false)
+{
+    setState(new PlayerNameScreen(this)); 
+}
+
+ScreenContext::~ScreenContext() {
+    delete currentScreen;
+    currentScreen = nullptr;
+}
 
 void ScreenContext::setFinalMessage(const std::string& message) {
     finalMessage = message;
@@ -41,4 +57,44 @@ void ScreenContext::display() {
 
 void ScreenContext::handleInput(char choice) {
     if (currentScreen) currentScreen->handleInput(choice);
+}
+
+void ScreenContext::setGamePlayerDataHead(pairList::PlayerListNode* head) {
+    gamePlayerDataHead = head;
+}
+
+void ScreenContext::setCurrentPlayerName(const std::string& name) {
+    currentPlayerName = name;
+}
+
+void ScreenContext::setCurrentPlayerDataPtr(PlayerData* playerPtr) {
+    currentPlayerDataPtr = playerPtr;
+}
+
+void ScreenContext::setGameResult(bool win) 
+{
+    gameEndedThisTurn = true;
+    lastGameWasWin = win;
+    if (currentPlayerDataPtr) {
+        currentPlayerDataPtr->gamesPlayed++;
+        if (win) {
+            currentPlayerDataPtr->wins++;
+        } 
+        else {
+            currentPlayerDataPtr->losses++;
+        }
+    }
+}
+
+void ScreenContext::resetGameEndFlags() {
+    gameEndedThisTurn = false;
+    lastGameWasWin = false;
+}
+
+void ScreenContext::requestDataSave() {
+    requestSaveData = true;
+}
+
+void ScreenContext::resetSaveDataRequest() {
+    requestSaveData = false;
 }

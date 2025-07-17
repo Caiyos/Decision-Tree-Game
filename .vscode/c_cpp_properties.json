@@ -1,12 +1,10 @@
 {
     "configurations": [
         {
-            "name": "GCC",
+            "name": "windows-gcc-x86",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:/MinGW64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++",
-                "C:/MinGW64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32",
-                "C:/MinGW64/include"
+                "${workspaceFolder}/include"
             ],
             "defines": [
                 "_DEBUG",
@@ -14,9 +12,9 @@
                 "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.19041.0",
-            "compilerPath": "C:/MinGW64/bin/g++.exe",
-            "cStandard": "c17",
-            "cppStandard": "c++17",
+            "compilerPath": "C:/MinGW/bin/gcc.exe",
+            "cStandard": "${default}",
+            "cppStandard": "${default}",
             "intelliSenseMode": "windows-gcc-x86"
         }
     ],

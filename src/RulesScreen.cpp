@@ -3,7 +3,7 @@
 #include "RulesScreen.hpp"
 #include "MainMenuScreen.hpp"
 
-RulesScreen::RulesScreen(ScreenContext* ctx) : context(ctx) {}
+RulesScreen::RulesScreen(ScreenContext* ctx) : IScreen(ctx), context(ctx) {}
 
 void RulesScreen::display() {
     std::cout << "Regras do jogo:                                            \n";

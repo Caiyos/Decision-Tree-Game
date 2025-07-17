@@ -5,7 +5,7 @@
 #include "TechnicalInfoScreen.hpp"
 
 GameOverScreen::GameOverScreen(ScreenContext* ctx) 
-    : context(ctx)
+    : IScreen(ctx), context(ctx)
 {
     message = context->getFinalMessage();
 }
@@ -22,13 +22,16 @@ void GameOverScreen::display() {
 void GameOverScreen::handleInput(char choice) {
     switch (choice) {
         case '1':
-            context->setFinalMessage(""); // Limpa a mensagem final
+            context->setFinalMessage(""); 
             context->setState(new GameScreen(context));
+            context->requestDataSave();
             break;
         case '2':
             context->setState(new TechnicalInfoScreen(context));
+            context->requestDataSave();
             break;
         case '0':
+            context->requestDataSave();
             exit(0);
         default:
             std::cout << "Opção inválida\n";

@@ -1,5 +1,5 @@
 #include "DecisionTreeGame.hpp"
-#include "MainMenuScreen.hpp"
+#include "PlayerNameScreen.hpp"
 #include <conio.h>
 #include <windows.h>
 #include <cstdio>
@@ -14,17 +14,22 @@ DecisionTreeGame::DecisionTreeGame()
     // bestScore(0.f),
     listHead(nullptr),
     treeRoot(nullptr),
+    playerListHead(nullptr),
+    currentPlayerName(""),
     context()
-{
+    {
     // highestScoreRead();
     SetConsoleOutputCP(CP_UTF8);
     buildList();
     buildTree();
-}
+    loadAllPlayersData();
+
+    context.setGamePlayerDataHead(playerListHead);
+    }
 
 DecisionTreeGame::~DecisionTreeGame()
 {
-    // liberar memória da lista e da árvore?
+    saveAllPlayersData();
 }
 
 /*
@@ -99,6 +104,86 @@ void DecisionTreeGame::buildTree()
     }
 }
 
+void DecisionTreeGame::loadAllPlayersData() 
+{
+    std::cout << "DEBUG: Tentando abrir player_data.txt para leitura...\n";
+    FILE* file = fopen("player_data.txt", "r");
+    if (!file) {
+        std::cerr << "player_data.txt não encontrado ou não pôde ser aberto. Iniciando sem dados de jogadores.\n";
+        std::cout << "DEBUG: Nao abriu para leitura. Retornando.\n";
+        _getch();
+        return;
+    }
+    std::cout << "DEBUG: player_data.txt aberto para leitura com sucesso.\n";
+    _getch();
+
+    char line[256]; 
+
+    while (fgets(line, sizeof(line), file)) 
+    {
+        std::stringstream ss(line);
+        std::string name, gamesPlayedStr, winsStr, lossesStr;
+
+        if (std::getline(ss, name, ';') &&
+            std::getline(ss, gamesPlayedStr, ';') &&
+            std::getline(ss, winsStr, ';') &&
+            std::getline(ss, lossesStr)) {
+            try {
+                int gamesPlayed = std::stoi(gamesPlayedStr);
+                int wins = std::stoi(winsStr);
+                int losses = std::stoi(lossesStr);
+
+                PlayerData pd(name, gamesPlayed, wins, losses); 
+                pairList::insertEnd(playerListHead, pd);
+            } catch (const std::invalid_argument& e) {
+                std::cerr << "Erro ao analisar linha de dados do jogador: " << line << " - " << e.what() << std::endl;
+                _getch();
+            } catch (const std::out_of_range& e) {
+                std::cerr << "Erro ao analisar linha de dados do jogador (fora do alcance): " << line << " - " << e.what() << std::endl;
+                _getch();
+            }
+        }
+    }
+
+    fclose(file); 
+    std::cout << "DEBUG: player_data.txt fechado apos leitura.\n";
+    _getch();
+}
+
+void DecisionTreeGame::saveAllPlayersData() 
+{
+    FILE* file = fopen("player_data.txt", "w");
+    if (!file) {
+        std::cerr << "Erro: Não foi possível abrir player_data.txt para escrita\n";
+        return;
+    }
+    std::cout << "Arquivo abridu\n";
+
+    pairList::PlayerListNode* current = playerListHead;
+    std::cout << "Quantidade de bichin: " << pairList::size(playerListHead) << "\n";
+    _getch();
+    while (current != nullptr) {
+        if (fprintf(file, "%s;%d;%d;%d\n",
+                    current->data.name.c_str(),
+                    current->data.gamesPlayed,
+                    current->data.wins,
+                    current->data.losses) < 0) {
+            std::cerr << "Erro ao escrever dados do jogador " << current->data.name << " em player_data.txt\n";
+        }
+        current = current->next;
+    }
+    fclose(file);
+}
+
+PlayerData* DecisionTreeGame::getCurrentPlayerData() 
+{
+    pairList::PlayerListNode* node = pairList::findPlayerNode(playerListHead, currentPlayerName);
+    if (node != nullptr) {
+        return &(node->data); // Retorna um ponteiro para os dados do PlayerData dentro do nó
+    }
+    return nullptr; 
+}
+
 searchTree::TreeNode* DecisionTreeGame::getGameTreeRoot()
 {
     return treeRoot;
@@ -109,19 +194,38 @@ simpleList::ListNode* DecisionTreeGame::getGameListHead()
     return listHead;
 }
 
+pairList::PlayerListNode* DecisionTreeGame::getGamePlayerDataHead()
+{
+    return playerListHead;
+}
 void DecisionTreeGame::run()
 {
     char choice;
 
     context.setGameTreeRoot(treeRoot);
     context.setGameListHead(listHead);
-    context.setState(new MainMenuScreen(&context));
+    context.setState(new PlayerNameScreen(&context));
 
     while (isRunning) {
         context.display();
         choice = _getch();
         context.handleInput(choice);
         system("cls");
+
+        if (context.getCurrentPlayerDataPtr() == nullptr && !context.getCurrentPlayerName().empty()) {
+            //Se tiver um jogador logado mas não tiver os dados 
+            currentPlayerName = context.getCurrentPlayerName(); 
+            context.setCurrentPlayerDataPtr(this->getCurrentPlayerData());
+        }
+
+        if (context.hasGameEnded()) {
+            context.resetGameEndFlags(); 
+        }
+
+        if (context.hasSaveDataRequest()) {
+            saveAllPlayersData();           
+            context.resetSaveDataRequest(); 
+        }
     }
 
     // highestScoreUpdate();

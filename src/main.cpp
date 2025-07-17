@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include "DecisionTreeGame.hpp"
 
 int main()

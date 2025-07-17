@@ -4,7 +4,7 @@
 #include "TechnicalInfoScreen.hpp"
 
 ListScreen::ListScreen(ScreenContext* ctx) 
-    : context(ctx) 
+    : IScreen(ctx), context(ctx) 
 {
     gameListHead = context->getGameListHead();
 }
