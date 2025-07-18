@@ -37,7 +37,7 @@ namespace pairList {
     }
     */
 
-    PlayerListNode* insertSorted(PlayerListNode*& head, const PlayerData& data) 
+    PlayerListNode* insertSorted(PlayerListNode** head, const PlayerData& data) 
     {
         PlayerListNode* newNode = new PlayerListNode(data);
 
@@ -47,13 +47,13 @@ namespace pairList {
             return nullptr;
         }
 
-        if (head == nullptr) 
+        if (*head == nullptr) 
         {
-            head = newNode;
+            *head = newNode;
             return newNode;
         }
 
-        PlayerListNode* current = head;
+        PlayerListNode* current = *head;
         // Percorre até encontrar o primeiro nó com menos vitórias que newNode
         while (current && current->data.wins >= data.wins) 
         {
@@ -61,16 +61,16 @@ namespace pairList {
         }
 
         // Caso 1: inserir antes do head
-        if (current == head) 
+        if (current == *head) 
         {
-            newNode->next = head;
-            head->prev = newNode;
-            head = newNode;
+            newNode->next = *head;
+            (*head)->prev = newNode;
+            *head = newNode;
         }
         // Caso 2: chegou ao fim da lista, insere no final
         else if (current == nullptr) 
         {
-            PlayerListNode* tail = head;
+            PlayerListNode* tail = *head;
 
             while (tail->next) tail = tail->next;
 

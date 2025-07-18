@@ -12,9 +12,9 @@ namespace pairList {
         PlayerListNode* prev; 
 
         PlayerListNode(const PlayerData& pd) 
-            : data(pd), 
-              next(nullptr), 
-              prev(nullptr) 
+          : data(pd), 
+            next(nullptr), 
+            prev(nullptr) 
         {}
     };
 
@@ -22,7 +22,7 @@ namespace pairList {
     PlayerListNode* insertEnd(PlayerListNode*& head, const PlayerData& data); 
     */
 
-    PlayerListNode* insertSorted(PlayerListNode*& head, const PlayerData& data); 
+    PlayerListNode* insertSorted(PlayerListNode** head, const PlayerData& data); 
 
     PlayerListNode* findPlayerNode(PlayerListNode* head, const std::string& playerName);
 

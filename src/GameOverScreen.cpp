@@ -6,7 +6,7 @@
 #include "TechnicalInfoScreen.hpp"
 
 GameOverScreen::GameOverScreen(ScreenContext* ctx) 
-    : IScreen(ctx), context(ctx)
+    : IScreen(ctx)
 {
     message = context->getFinalMessage();
 }

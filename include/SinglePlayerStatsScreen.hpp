@@ -3,14 +3,17 @@
 
 #include "IScreen.hpp"
 #include "ScreenContext.hpp"
+#include "pairList.hpp"
 
 #include <string.h>
 
 class SinglePlayerStatsScreen : public IScreen {
 private:
-    ScreenContext* context;
-    
     std::string playerName;
+
+    PlayerData* player;
+
+    pairList::PlayerListNode* playerListHead;
     
 public:
     SinglePlayerStatsScreen(ScreenContext* ctx, const std::string& name);

@@ -5,10 +5,13 @@
 
 #include "IScreen.hpp"
 #include "ScreenContext.hpp"
+#include "pairList.hpp"
 
 class PlayerNameScreen : public IScreen {
 private:
     std::string playerNameInput; 
+    
+    pairList::PlayerListNode* playerListHead;
 
 public:
     PlayerNameScreen(ScreenContext* ctx);

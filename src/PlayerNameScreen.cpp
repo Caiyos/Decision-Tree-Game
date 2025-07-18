@@ -8,10 +8,13 @@
 #include <limits>
 #include <conio.h>
 #include <string.h>
+#include <windows.h> // Para Sleep
 
 PlayerNameScreen::PlayerNameScreen(ScreenContext*context)
     : IScreen(context)
-{}
+{
+    playerListHead = context->getGamePlayerListHead();
+}
 
 void PlayerNameScreen::display() 
 {
@@ -32,7 +35,7 @@ void PlayerNameScreen::handleInput(char input)
         std::string enteredName = playerNameInput;
         playerNameInput.clear();
 
-        pairList::PlayerListNode* existingPlayerNode = pairList::findPlayerNode(context->getGamePlayerDataHead(), enteredName);
+        pairList::PlayerListNode* existingPlayerNode = pairList::findPlayerNode(context->getGamePlayerListHead(), enteredName);
 
         if (existingPlayerNode != nullptr) 
         {
@@ -45,14 +48,14 @@ void PlayerNameScreen::handleInput(char input)
                 context->setCurrentPlayerName(enteredName);
                 context->setCurrentPlayerDataPtr(&(existingPlayerNode->data));
 
-
+                /*
                 if (context->getCurrentPlayerDataPtr()) {
                     std::cout << "DEBUG: PlayerDataPtr is VALID for player: " << context->getCurrentPlayerDataPtr()->name << std::endl;
                 } else {
                     std::cout << "DEBUG: PlayerDataPtr is NULL after setting!" << std::endl;
                 }
                 _getch();
-
+                */
 
                 context->setState(new MainMenuScreen(context));
                 return;
@@ -66,30 +69,34 @@ void PlayerNameScreen::handleInput(char input)
         else 
         {
             std::cout << "\nBem-vindo, " << enteredName << "! Criando novo progresso.\n";
+            Sleep(1000); // Simula um pequeno atraso para a experiência do usuário
 
             context->setCurrentPlayerName(enteredName);
 
             PlayerData newPlayer(enteredName, 0, 0, 0);
 
-            std::cout << "DEBUG: newPlayer criada. Nome: " << newPlayer.name << std::endl; // PAUSA 2
-            _getch(); // SE O CRASH FOR AQUI, o problema é newPlayer (pouco provável)
+            // std::cout << "DEBUG: newPlayer criada. Nome: " << newPlayer.name << std::endl; // PAUSA 2
+            // _getch(); // SE O CRASH FOR AQUI, o problema é newPlayer (pouco provável)
 
-            pairList::insertSorted(context->getGamePlayerDataHead(), newPlayer); 
-            
-            pairList::PlayerListNode* newNode = pairList::findPlayerNode(context->getGamePlayerDataHead(), enteredName);
+            pairList::insertSorted(&playerListHead, newPlayer);
+
+            pairList::PlayerListNode* newNode = pairList::findPlayerNode(playerListHead, enteredName);
+
             if (newNode) { // Testa se o player foi adicionado
                 context->setCurrentPlayerDataPtr(&(newNode->data));
                 context->requestDataSave();
                 
+                /*
                 if (context->getCurrentPlayerDataPtr()) {
                     std::cout << "DEBUG: PlayerDataPtr is VALID for player: " << context->getCurrentPlayerDataPtr()->name << std::endl;
                 } else {
                     std::cout << "DEBUG: PlayerDataPtr is NULL after setting!" << std::endl;
                 }
                 _getch();
+                */
             }
 
-            _getch();
+            // _getch();
             context->setState(new MainMenuScreen(context));
         }
 

@@ -6,7 +6,9 @@
 #include "GameScreen.hpp"
 #include "SinglePlayerStatsScreen.hpp"
 
-MainMenuScreen::MainMenuScreen(ScreenContext* ctx) : IScreen(ctx), context(ctx) {}
+MainMenuScreen::MainMenuScreen(ScreenContext* ctx) 
+  : IScreen(ctx)
+{}
 
 void MainMenuScreen::display() {
     std::cout << "=== Menu Principal ===\n";

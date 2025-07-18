@@ -7,8 +7,6 @@
 
 class TreeScreen : public IScreen {
 private:
-    ScreenContext* context;
-
     searchTree::TreeNode* gameTreeRoot;
     
 public:

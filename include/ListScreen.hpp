@@ -7,8 +7,6 @@
 
 class ListScreen : public IScreen {
 private:
-    ScreenContext* context;
-
     simpleList::ListNode* gameListHead;
     
 public:

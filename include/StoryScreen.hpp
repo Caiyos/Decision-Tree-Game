@@ -6,7 +6,6 @@
 
 class StoryScreen : public IScreen {
 private:
-    ScreenContext* context;
 
 public:
     StoryScreen(ScreenContext* ctx);

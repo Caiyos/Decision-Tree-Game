@@ -10,59 +10,22 @@
 
 DecisionTreeGame::DecisionTreeGame()
   : isRunning(true),
-    // score(0.f),
-    // bestScore(0.f),
     listHead(nullptr),
     treeRoot(nullptr),
     playerListHead(nullptr),
     currentPlayerName(""),
     context()
-    {
-    // highestScoreRead();
+{
     SetConsoleOutputCP(CP_UTF8);
     buildList();
     buildTree();
     loadAllPlayersData();
-
-    context.setGamePlayerDataHead(playerListHead);
-    }
+}
 
 DecisionTreeGame::~DecisionTreeGame()
 {
     saveAllPlayersData();
 }
-
-/*
-void DecisionTreeGame::highestScoreRead()
-{
-    FILE* file = fopen("highestScore.txt", "r");
-    if (!file) return;
-
-    float hist = 0.f;
-    char buffer[64];
-    if (fgets(buffer, sizeof(buffer), file)) {
-        sscanf(buffer, "%*s %*s %*s %*s %f", &hist);
-    }
-    fclose(file);
-    bestScore = hist;
-}
-*/
-
-/*
-void DecisionTreeGame::highestScoreUpdate()
-{
-    if (score <= bestScore) return;
-
-    bestScore = score;
-    FILE* file = fopen("highestScore.txt", "w");
-    if (!file) {
-        std::cerr << "Não foi possível abrir highestScore.txt para escrita\n";
-        exit(1);
-    }
-    fprintf(file, "Melhor score historico foi %.1f", bestScore);
-    fclose(file);
-}
-*/
 
 void DecisionTreeGame::buildList()
 {
@@ -106,16 +69,17 @@ void DecisionTreeGame::buildTree()
 
 void DecisionTreeGame::loadAllPlayersData() 
 {
-    std::cout << "DEBUG: Tentando abrir player_data.txt para leitura...\n";
+    // std::cout << "DEBUG: Tentando abrir player_data.txt para leitura...\n";
     FILE* file = fopen("player_data.txt", "r");
     if (!file) {
         std::cerr << "player_data.txt não encontrado ou não pôde ser aberto. Iniciando sem dados de jogadores.\n";
-        std::cout << "DEBUG: Nao abriu para leitura. Retornando.\n";
+        // std::cout << "DEBUG: Nao abriu para leitura. Retornando.\n";
         _getch();
         return;
     }
-    std::cout << "DEBUG: player_data.txt aberto para leitura com sucesso.\n";
-    _getch();
+
+    // std::cout << "DEBUG: player_data.txt aberto para leitura com sucesso.\n";
+    // _getch();
 
     char line[256]; 
 
@@ -129,16 +93,22 @@ void DecisionTreeGame::loadAllPlayersData()
             std::getline(ss, winsStr, ';') &&
             std::getline(ss, lossesStr)) {
             try {
+
                 int gamesPlayed = std::stoi(gamesPlayedStr);
                 int wins = std::stoi(winsStr);
                 int losses = std::stoi(lossesStr);
 
                 PlayerData pd(name, gamesPlayed, wins, losses); 
-                pairList::insertSorted(playerListHead, pd);
-            } catch (const std::invalid_argument& e) {
+                pairList::insertSorted(&playerListHead, pd);
+
+            } 
+            catch (const std::invalid_argument& e) 
+            {
                 std::cerr << "Erro ao analisar linha de dados do jogador: " << line << " - " << e.what() << std::endl;
                 _getch();
-            } catch (const std::out_of_range& e) {
+            } 
+            catch (const std::out_of_range& e) 
+            {
                 std::cerr << "Erro ao analisar linha de dados do jogador (fora do alcance): " << line << " - " << e.what() << std::endl;
                 _getch();
             }
@@ -146,8 +116,8 @@ void DecisionTreeGame::loadAllPlayersData()
     }
 
     fclose(file); 
-    std::cout << "DEBUG: player_data.txt fechado apos leitura.\n";
-    _getch();
+    // std::cout << "DEBUG: player_data.txt fechado apos leitura.\n";
+    // _getch();
 }
 
 void DecisionTreeGame::saveAllPlayersData() 
@@ -157,12 +127,14 @@ void DecisionTreeGame::saveAllPlayersData()
         std::cerr << "Erro: Não foi possível abrir player_data.txt para escrita\n";
         return;
     }
-    std::cout << "Arquivo abridu\n";
+    // std::cout << "Arquivo abriu com sucesso\n";
 
-    pairList::PlayerListNode* current = context.getGamePlayerDataHead();
-    std::cout << "Quantidade de bichin: " << pairList::size(context.getGamePlayerDataHead()) << "\n";
-    _getch();
-    while (current != nullptr) {
+    std::cout << "Quantidade de Jogadores: " << pairList::size(context.getGamePlayerListHead()) << "\n";
+    // _getch();
+
+    pairList::PlayerListNode* current = context.getGamePlayerListHead();
+    while (current != nullptr) 
+    {
         if (fprintf(file, "%s;%d;%d;%d\n",
                     current->data.name.c_str(),
                     current->data.gamesPlayed,
@@ -170,6 +142,7 @@ void DecisionTreeGame::saveAllPlayersData()
                     current->data.losses) < 0) {
             std::cerr << "Erro ao escrever dados do jogador " << current->data.name << " em player_data.txt\n";
         }
+
         current = current->next;
     }
     fclose(file);
@@ -184,26 +157,14 @@ PlayerData* DecisionTreeGame::getCurrentPlayerData()
     return nullptr; 
 }
 
-searchTree::TreeNode* DecisionTreeGame::getGameTreeRoot()
-{
-    return treeRoot;
-}
-
-simpleList::ListNode* DecisionTreeGame::getGameListHead()
-{
-    return listHead;
-}
-
-pairList::PlayerListNode* DecisionTreeGame::getGamePlayerDataHead()
-{
-    return playerListHead;
-}
 void DecisionTreeGame::run()
 {
     char choice;
 
     context.setGameTreeRoot(treeRoot);
     context.setGameListHead(listHead);
+    context.setGamePlayerListHead(playerListHead);
+
     context.setState(new PlayerNameScreen(&context));
 
     while (isRunning) {
@@ -216,10 +177,6 @@ void DecisionTreeGame::run()
             //Se tiver um jogador logado mas não tiver os dados 
             currentPlayerName = context.getCurrentPlayerName(); 
             context.setCurrentPlayerDataPtr(this->getCurrentPlayerData());
-        }
-
-        if (context.hasGameEnded()) {
-            context.resetGameEndFlags(); 
         }
 
         if (context.hasSaveDataRequest()) {

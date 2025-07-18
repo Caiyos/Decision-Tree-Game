@@ -6,7 +6,6 @@
 
 class RulesScreen : public IScreen {
 private:
-    ScreenContext* context;
 
 public:
     RulesScreen(ScreenContext* ctx);

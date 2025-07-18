@@ -4,7 +4,7 @@
 #include "TechnicalInfoScreen.hpp"
 
 TreeScreen::TreeScreen(ScreenContext* ctx) 
-    : IScreen(ctx), context(ctx) 
+  : IScreen(ctx) 
 {
     gameTreeRoot = context->getGameTreeRoot();
 }

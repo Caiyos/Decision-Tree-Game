@@ -3,7 +3,9 @@
 #include "StoryScreen.hpp"
 #include "MainMenuScreen.hpp"
 
-StoryScreen::StoryScreen(ScreenContext* ctx) : IScreen(ctx), context(ctx) {}
+StoryScreen::StoryScreen(ScreenContext* ctx) 
+  : IScreen(ctx)
+{}
 
 void StoryScreen::display() {
     std::cout << "História do jogo:                                           \n";

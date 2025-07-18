@@ -13,37 +13,29 @@ private:
     // Estado de execução
     bool isRunning;
 
-    // Controle de pontuação
-    float score;
-    float bestScore;
-
     // Estruturas de dados
     simpleList::ListNode* listHead;
     searchTree::TreeNode* treeRoot;
-
     pairList::PlayerListNode* playerListHead;
+
+    // Dados do jogador atual
     std::string currentPlayerName;
+
     // Contexto de telas (menus, jogo, game over...)
     ScreenContext context;
 
-    // Métodos de inicialização e teardown
-    // void highestScoreRead();
-    // void highestScoreUpdate();
+    // Métodos de inicialização
     void buildList();
     void buildTree();
     void loadAllPlayersData();
     void saveAllPlayersData();
+
+    // Métodos de manipulação de dados do jogador
     PlayerData* getCurrentPlayerData();
     
 public:
     DecisionTreeGame();
     ~DecisionTreeGame();
-
-    searchTree::TreeNode* getGameTreeRoot();
-    simpleList::ListNode* getGameListHead();
-    pairList::PlayerListNode* getGamePlayerDataHead();
-
-    
 
     // API pública
     void run();

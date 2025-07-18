@@ -8,7 +8,7 @@
 #include "SinglePlayerStatsScreen.hpp"
 
 TechnicalInfoScreen::TechnicalInfoScreen(ScreenContext* ctx) 
-    : IScreen(ctx), context(ctx)
+  : IScreen(ctx)
 {}
 
 void TechnicalInfoScreen::display() {

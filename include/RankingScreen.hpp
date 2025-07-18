@@ -8,7 +8,8 @@
 
 class RankingScreen : public IScreen {
 private:
-    ScreenContext* context;
+    pairList::PlayerListNode* playerListHead;
+    pairList::PlayerListNode* current;
 
 public:
     RankingScreen(ScreenContext* ctx);

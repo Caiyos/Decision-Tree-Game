@@ -6,7 +6,6 @@
 
 class GameOverScreen : public IScreen {
 private:
-    ScreenContext* context;
     std::string message;
 
 public:

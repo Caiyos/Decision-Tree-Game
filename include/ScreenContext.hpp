@@ -10,19 +10,22 @@
 
 class ScreenContext {
 private:
+    // Estado atual da tela
     IScreen* currentScreen;
+
+    // Estruturas de dados do jogo
     searchTree::TreeNode* gameTreeRoot;
     simpleList::ListNode* gameListHead;
+    pairList::PlayerListNode* GamePlayerListHead; 
 
+    // Mensagem final do jogo
     std::string finalMessage;
 
-    pairList::PlayerListNode* gamePlayerDataHead; 
+    // Dados do jogador atual
     std::string currentPlayerName;                
     PlayerData* currentPlayerDataPtr;             
 
-    bool gameEndedThisTurn;
-    bool lastGameWasWin;
-
+    // Flags de estado do jogo
     bool requestSaveData;
 
 public:
@@ -33,6 +36,7 @@ public:
     void display();
     void handleInput(char choice);
 
+    // Getters e Setters
     std::string getFinalMessage() const;
     void setFinalMessage(const std::string& message);
 
@@ -42,22 +46,21 @@ public:
     void setGameListHead(simpleList::ListNode* head);
     simpleList::ListNode* getGameListHead() const;
 
-    void setGamePlayerDataHead(pairList::PlayerListNode* head);
-    pairList::PlayerListNode*& getGamePlayerDataHead() { return gamePlayerDataHead; }
+    void setGamePlayerListHead(pairList::PlayerListNode* head);
+    pairList::PlayerListNode* getGamePlayerListHead() const;
 
     void setCurrentPlayerName(const std::string& name); 
-    const std::string& getCurrentPlayerName() const { return currentPlayerName; }
+    const std::string& getCurrentPlayerName() const;
 
     void setCurrentPlayerDataPtr(PlayerData* playerPtr); 
-    PlayerData* getCurrentPlayerDataPtr() const { return currentPlayerDataPtr; }
+    PlayerData* getCurrentPlayerDataPtr() const;
 
+    // Flags de estado do jogo
     void setGameResult(bool win);
-    bool hasGameEnded() const { return gameEndedThisTurn; }
-    bool wasLastGameWin() const { return lastGameWasWin; }
-    void resetGameEndFlags();
 
+    // Manipulação de dados do jogador
     void requestDataSave();
-    bool hasSaveDataRequest() const { return requestSaveData; }
+    bool hasSaveDataRequest();
     void resetSaveDataRequest();
 };
 

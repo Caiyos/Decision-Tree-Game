@@ -6,7 +6,7 @@
 #include "ScreenContext.hpp"
 
 GameScreen::GameScreen(ScreenContext* ctx)
-  : IScreen(ctx), context(ctx)
+  : IScreen(ctx)
 {
   // busca a raiz no Context
   root = context->getGameTreeRoot();

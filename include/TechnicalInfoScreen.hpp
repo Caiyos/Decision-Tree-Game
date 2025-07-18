@@ -6,7 +6,6 @@
 
 class TechnicalInfoScreen : public IScreen {
 private:
-    ScreenContext* context;
 
 public:
     TechnicalInfoScreen(ScreenContext* ctx);

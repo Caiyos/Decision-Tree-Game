@@ -4,23 +4,31 @@
 #include <iostream>
 
 ScreenContext::ScreenContext()
-    : currentScreen(nullptr),
-      gameTreeRoot(nullptr),
-      gameListHead(nullptr),
-      finalMessage(""),
-      gamePlayerDataHead(nullptr), 
-      currentPlayerName(""),
-      currentPlayerDataPtr(nullptr), 
-      gameEndedThisTurn(false),
-      lastGameWasWin(false),
-      requestSaveData(false)
-{
-    setState(new PlayerNameScreen(this)); 
-}
+  : currentScreen(nullptr),
+    gameTreeRoot(nullptr),
+    gameListHead(nullptr),
+    GamePlayerListHead(nullptr), 
+    finalMessage(""),
+    currentPlayerName(""),
+    currentPlayerDataPtr(nullptr), 
+    requestSaveData(false)
+{}
 
 ScreenContext::~ScreenContext() {
     delete currentScreen;
     currentScreen = nullptr;
+}
+
+void ScreenContext::setState(IScreen* state) {
+    currentScreen = state;
+}
+
+void ScreenContext::display() {
+    if (currentScreen) currentScreen->display();
+}
+
+void ScreenContext::handleInput(char choice) {
+    if (currentScreen) currentScreen->handleInput(choice);
 }
 
 void ScreenContext::setFinalMessage(const std::string& message) {
@@ -47,54 +55,57 @@ simpleList::ListNode* ScreenContext::getGameListHead() const {
     return gameListHead;
 }
 
-void ScreenContext::setState(IScreen* state) {
-    currentScreen = state;
+void ScreenContext::setGamePlayerListHead(pairList::PlayerListNode* head) {
+    GamePlayerListHead = head;
 }
 
-void ScreenContext::display() {
-    if (currentScreen) currentScreen->display();
-}
-
-void ScreenContext::handleInput(char choice) {
-    if (currentScreen) currentScreen->handleInput(choice);
-}
-
-void ScreenContext::setGamePlayerDataHead(pairList::PlayerListNode* head) {
-    gamePlayerDataHead = head;
+pairList::PlayerListNode* ScreenContext::getGamePlayerListHead() const {
+    return GamePlayerListHead;
 }
 
 void ScreenContext::setCurrentPlayerName(const std::string& name) {
     currentPlayerName = name;
 }
 
+const std::string& ScreenContext::getCurrentPlayerName() const {
+    return currentPlayerName;
+}
+
 void ScreenContext::setCurrentPlayerDataPtr(PlayerData* playerPtr) {
     currentPlayerDataPtr = playerPtr;
 }
 
+PlayerData* ScreenContext::getCurrentPlayerDataPtr() const {
+    return currentPlayerDataPtr;
+}
+
 void ScreenContext::setGameResult(bool win) 
 {
-    gameEndedThisTurn = true;
-    lastGameWasWin = win;
-    if (currentPlayerDataPtr) {
+    if (currentPlayerDataPtr) 
+    {
         currentPlayerDataPtr->gamesPlayed++;
-        if (win) {
+
+        if (win) 
+        {
             currentPlayerDataPtr->wins++;
         } 
-        else {
+        else 
+        {
             currentPlayerDataPtr->losses++;
         }
     }
 }
 
-void ScreenContext::resetGameEndFlags() {
-    gameEndedThisTurn = false;
-    lastGameWasWin = false;
-}
-
-void ScreenContext::requestDataSave() {
+void ScreenContext::requestDataSave() 
+{
     requestSaveData = true;
 }
 
-void ScreenContext::resetSaveDataRequest() {
+bool ScreenContext::hasSaveDataRequest() {
+    return requestSaveData;
+}
+
+void ScreenContext::resetSaveDataRequest() 
+{
     requestSaveData = false;
 }

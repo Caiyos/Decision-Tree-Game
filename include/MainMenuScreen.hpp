@@ -6,7 +6,6 @@
 
 class MainMenuScreen : public IScreen {
 private:
-    ScreenContext* context;
 
 public:
     MainMenuScreen(ScreenContext* ctx);

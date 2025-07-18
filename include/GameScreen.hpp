@@ -11,15 +11,13 @@ class GameScreen : public IScreen {
 private:
     using TreeNode = searchTree::TreeNode;
 
-    ScreenContext* context;
     TreeNode* root;         
     TreeNode* currentNode;  
-
-    void checkGameOver();
-
+    
 public:
     GameScreen(ScreenContext* ctx);
     void display() override;
+    void checkGameOver();
     void handleInput(char choice) override;
 };
 
