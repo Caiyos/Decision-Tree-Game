@@ -1,13 +1,15 @@
 #ifndef PLAYER_NAME_SCREEN_HPP
 #define PLAYER_NAME_SCREEN_HPP
 
+#include <string>
+
 #include "IScreen.hpp"
 #include "ScreenContext.hpp"
-#include <string>
 
 class PlayerNameScreen : public IScreen {
 private:
     std::string playerNameInput; 
+
 public:
     PlayerNameScreen(ScreenContext* ctx);
     void display() override;

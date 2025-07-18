@@ -10,18 +10,21 @@
 #include <string.h>
 
 PlayerNameScreen::PlayerNameScreen(ScreenContext*context)
-    : IScreen(context) {}
+    : IScreen(context)
+{}
 
-void PlayerNameScreen::display() {
-    system("cls");
+void PlayerNameScreen::display() 
+{
     std::cout << "=== Bem-vindo ao Jogo! === \n";
     std::cout << "\n";
     std::cout << "Escolha o seu nome de jogador: \n";
     std::cout << playerNameInput;
 }
 
-void PlayerNameScreen::handleInput(char input) {
+void PlayerNameScreen::handleInput(char input) 
+{
     if (input == '\r' || input == '\n') { // Tecla Enter
+        
         if (playerNameInput.empty()) {
             return;
         }
@@ -31,7 +34,8 @@ void PlayerNameScreen::handleInput(char input) {
 
         pairList::PlayerListNode* existingPlayerNode = pairList::findPlayerNode(context->getGamePlayerDataHead(), enteredName);
 
-        if (existingPlayerNode != nullptr) {
+        if (existingPlayerNode != nullptr) 
+        {
             std::cout << "\nOla, " << enteredName << "! Encontrei seu progresso.\n";
             std::cout << "Deseja continuar com este jogador? (S/N)\n> ";
             char choice = _getch();
@@ -59,7 +63,8 @@ void PlayerNameScreen::handleInput(char input) {
                 return;
             }
         } 
-        else {
+        else 
+        {
             std::cout << "\nBem-vindo, " << enteredName << "! Criando novo progresso.\n";
 
             context->setCurrentPlayerName(enteredName);
@@ -69,7 +74,7 @@ void PlayerNameScreen::handleInput(char input) {
             std::cout << "DEBUG: newPlayer criada. Nome: " << newPlayer.name << std::endl; // PAUSA 2
             _getch(); // SE O CRASH FOR AQUI, o problema é newPlayer (pouco provável)
 
-            pairList::insertEnd(context->getGamePlayerDataHead(), newPlayer); 
+            pairList::insertSorted(context->getGamePlayerDataHead(), newPlayer); 
             
             pairList::PlayerListNode* newNode = pairList::findPlayerNode(context->getGamePlayerDataHead(), enteredName);
             if (newNode) { // Testa se o player foi adicionado
@@ -89,10 +94,14 @@ void PlayerNameScreen::handleInput(char input) {
         }
 
     } else if (input == '\b' || input == 127) { //Del
+
         if (!playerNameInput.empty()) {
             playerNameInput.pop_back();
         }
+
     } else if (isprint(input)) {
+
         playerNameInput += input;
+
     }
 }

@@ -1,0 +1,3 @@
+caiyo;2;1;1
+ababoui;1;1;0
+caio;1;1;0

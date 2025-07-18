@@ -43,6 +43,8 @@ public:
     simpleList::ListNode* getGameListHead();
     pairList::PlayerListNode* getGamePlayerDataHead();
 
+    
+
     // API pública
     void run();
 };

@@ -7,20 +7,28 @@
 namespace pairList {
 
     struct PlayerListNode {
-    PlayerData data;
-    PlayerListNode* next;
-    PlayerListNode* prev; 
+        PlayerData data;
+        PlayerListNode* next;
+        PlayerListNode* prev; 
 
-    PlayerListNode(const PlayerData& pd) : data(pd), next(nullptr), prev(nullptr) {}
+        PlayerListNode(const PlayerData& pd) 
+            : data(pd), 
+              next(nullptr), 
+              prev(nullptr) 
+        {}
     };
-    
+
+    /*
     PlayerListNode* insertEnd(PlayerListNode*& head, const PlayerData& data); 
+    */
+
+    PlayerListNode* insertSorted(PlayerListNode*& head, const PlayerData& data); 
+
+    PlayerListNode* findPlayerNode(PlayerListNode* head, const std::string& playerName);
 
     void printList(PlayerListNode *head);
 
     void freeList(PlayerListNode* head);
-    
-    PlayerListNode* findPlayerNode(PlayerListNode* head, const std::string& playerName);
     
     int size(PlayerListNode* head);
 }

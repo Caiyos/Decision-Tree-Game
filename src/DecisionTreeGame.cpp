@@ -134,7 +134,7 @@ void DecisionTreeGame::loadAllPlayersData()
                 int losses = std::stoi(lossesStr);
 
                 PlayerData pd(name, gamesPlayed, wins, losses); 
-                pairList::insertEnd(playerListHead, pd);
+                pairList::insertSorted(playerListHead, pd);
             } catch (const std::invalid_argument& e) {
                 std::cerr << "Erro ao analisar linha de dados do jogador: " << line << " - " << e.what() << std::endl;
                 _getch();
@@ -159,8 +159,8 @@ void DecisionTreeGame::saveAllPlayersData()
     }
     std::cout << "Arquivo abridu\n";
 
-    pairList::PlayerListNode* current = playerListHead;
-    std::cout << "Quantidade de bichin: " << pairList::size(playerListHead) << "\n";
+    pairList::PlayerListNode* current = context.getGamePlayerDataHead();
+    std::cout << "Quantidade de bichin: " << pairList::size(context.getGamePlayerDataHead()) << "\n";
     _getch();
     while (current != nullptr) {
         if (fprintf(file, "%s;%d;%d;%d\n",

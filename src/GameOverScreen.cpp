@@ -2,6 +2,7 @@
 
 #include "GameOverScreen.hpp"
 #include "GameScreen.hpp"
+#include "MainMenuScreen.hpp"
 #include "TechnicalInfoScreen.hpp"
 
 GameOverScreen::GameOverScreen(ScreenContext* ctx) 
@@ -32,7 +33,7 @@ void GameOverScreen::handleInput(char choice) {
             break;
         case '0':
             context->requestDataSave();
-            exit(0);
+            context->setState(new MainMenuScreen(context));
         default:
             std::cout << "Opção inválida\n";
     }
