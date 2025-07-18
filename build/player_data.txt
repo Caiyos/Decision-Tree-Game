@@ -1,3 +1,4 @@
-caiyo;5;3;2
-banana;1;1;0
-
+oi;10;9;1
+banana;9;8;1
+caiyo;8;6;2
+teste;0;0;0

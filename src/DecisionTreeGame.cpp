@@ -24,7 +24,12 @@ DecisionTreeGame::DecisionTreeGame()
 
 DecisionTreeGame::~DecisionTreeGame()
 {
+    reorderPlayerList();
     saveAllPlayersData();
+    
+    deleteTree(treeRoot);
+    deleteList(listHead);
+    deletePlayerList(playerListHead);
 }
 
 void DecisionTreeGame::buildList()
@@ -157,6 +162,37 @@ PlayerData* DecisionTreeGame::getCurrentPlayerData()
     return nullptr; 
 }
 
+void DecisionTreeGame::deleteTree(searchTree::TreeNode* node) {
+    if (node == nullptr) return;
+
+    deleteTree(node->left);
+    deleteTree(node->right);
+    delete node;
+}
+
+void DecisionTreeGame::deleteList(simpleList::ListNode* node) {
+    while (node != nullptr) {
+        simpleList::ListNode* temp = node;
+        node = node->next;
+        delete temp;
+    }
+}
+
+void DecisionTreeGame::deletePlayerList(pairList::PlayerListNode* node) {
+    while (node != nullptr) {
+        pairList::PlayerListNode* temp = node;
+        node = node->next;
+        delete temp;
+    }
+}
+
+void DecisionTreeGame::reorderPlayerList()
+{
+    pairList::PlayerListNode* oldHead = context.getGamePlayerListHead();
+    pairList::PlayerListNode* sorted = pairList::reorderList(oldHead);
+    context.setGamePlayerListHead(sorted);
+}
+
 void DecisionTreeGame::run()
 {
     char choice;
@@ -173,6 +209,11 @@ void DecisionTreeGame::run()
         context.handleInput(choice);
         system("cls");
 
+        if (context.isExitRequested()) {
+            exitGame();
+            break;
+        }
+
         if (context.getCurrentPlayerDataPtr() == nullptr && !context.getCurrentPlayerName().empty()) {
             //Se tiver um jogador logado mas não tiver os dados 
             currentPlayerName = context.getCurrentPlayerName(); 
@@ -184,6 +225,4 @@ void DecisionTreeGame::run()
             context.resetSaveDataRequest(); 
         }
     }
-
-    // highestScoreUpdate();
 }

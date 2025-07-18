@@ -1,5 +1,5 @@
 #include "RankingScreen.hpp"
-#include "MainMenuScreen.hpp" // Adicionado para new MainMenuScreen
+#include "TechnicalInfoScreen.hpp"
 #include "pairList.hpp"
 #include "PlayerData.hpp"
 #include <iostream>
@@ -34,10 +34,10 @@ void RankingScreen::display()
     }
     
     std::cout << "\n";
-    std::cout << "Pressione qualquer tecla para voltar ao Menu Principal...\n";
+    std::cout << "Pressione qualquer tecla para voltar ao menu anterior...\n";
 }
 
 void RankingScreen::handleInput(char input)
 {
-    context->setState(new MainMenuScreen(context));
+    context->setState(new TechnicalInfoScreen(context));
 }

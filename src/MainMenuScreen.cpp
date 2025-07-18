@@ -31,10 +31,11 @@ void MainMenuScreen::handleInput(char choice) {
             context->setState(new RulesScreen(context));
             break;
         case '4':
-            context->setState(new SinglePlayerStatsScreen(context, context->getCurrentPlayerName()));
+            context->setState(new SinglePlayerStatsScreen(context));
             break;
         case '0':
-            exit(0);
+            context->requestExit();
+            break;
         default:
             std::cout << "Opção inválida\n";
     }

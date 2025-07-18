@@ -35,7 +35,7 @@ void PlayerNameScreen::handleInput(char input)
         std::string enteredName = playerNameInput;
         playerNameInput.clear();
 
-        pairList::PlayerListNode* existingPlayerNode = pairList::findPlayerNode(context->getGamePlayerListHead(), enteredName);
+        pairList::PlayerListNode* existingPlayerNode = pairList::findPlayerNode(playerListHead, enteredName);
 
         if (existingPlayerNode != nullptr) 
         {

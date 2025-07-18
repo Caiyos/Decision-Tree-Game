@@ -11,7 +11,8 @@ ScreenContext::ScreenContext()
     finalMessage(""),
     currentPlayerName(""),
     currentPlayerDataPtr(nullptr), 
-    requestSaveData(false)
+    requestSaveData(false),
+    exitRequested(false)
 {}
 
 ScreenContext::~ScreenContext() {
@@ -20,6 +21,7 @@ ScreenContext::~ScreenContext() {
 }
 
 void ScreenContext::setState(IScreen* state) {
+    delete currentScreen;
     currentScreen = state;
 }
 
@@ -109,3 +111,12 @@ void ScreenContext::resetSaveDataRequest()
 {
     requestSaveData = false;
 }
+
+void ScreenContext::requestExit() {
+    exitRequested = true;
+}
+
+bool ScreenContext::isExitRequested() const {
+    return exitRequested;
+}
+

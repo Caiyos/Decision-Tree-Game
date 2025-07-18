@@ -28,6 +28,8 @@ private:
     // Flags de estado do jogo
     bool requestSaveData;
 
+    bool exitRequested;
+
 public:
     ScreenContext();
     ~ScreenContext();
@@ -62,6 +64,9 @@ public:
     void requestDataSave();
     bool hasSaveDataRequest();
     void resetSaveDataRequest();
+
+    void requestExit();
+    bool isExitRequested() const;
 };
 
 #endif // SCREENCONTEXT_HPP

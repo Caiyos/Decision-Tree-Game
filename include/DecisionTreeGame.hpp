@@ -32,7 +32,18 @@ private:
 
     // Métodos de manipulação de dados do jogador
     PlayerData* getCurrentPlayerData();
-    
+
+    // Sair do jogo
+    void exitGame() { isRunning = false; }
+
+    // Limpeza de memória
+    void deleteTree(searchTree::TreeNode* node);
+    void deleteList(simpleList::ListNode* node);
+    void deletePlayerList(pairList::PlayerListNode* node);
+
+    // Reordena a lista de jogadores
+    void reorderPlayerList();
+
 public:
     DecisionTreeGame();
     ~DecisionTreeGame();

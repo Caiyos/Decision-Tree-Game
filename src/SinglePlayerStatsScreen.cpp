@@ -4,10 +4,10 @@
 #include <iostream>
 #include <cctype> // Necessário para isprint()
 
-SinglePlayerStatsScreen::SinglePlayerStatsScreen(ScreenContext* ctx, const std::string& name)
-  : IScreen(ctx),
-    playerName(name) 
+SinglePlayerStatsScreen::SinglePlayerStatsScreen(ScreenContext* ctx)
+  : IScreen(ctx) 
 {
+    playerName = context->getCurrentPlayerName();
     player = nullptr;
     playerListHead = context->getGamePlayerListHead();
 }

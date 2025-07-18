@@ -16,7 +16,7 @@ private:
     pairList::PlayerListNode* playerListHead;
     
 public:
-    SinglePlayerStatsScreen(ScreenContext* ctx, const std::string& name);
+    SinglePlayerStatsScreen(ScreenContext* ctx);
     void display() override;
     void handleInput(char choice) override;
 };
