@@ -7,17 +7,20 @@ StoryScreen::StoryScreen(ScreenContext* ctx)
   : IScreen(ctx)
 {}
 
-void StoryScreen::display() {
+void StoryScreen::display() 
+{
     std::cout << "História do jogo:                                           \n";
-    std::cout << "Era uma vez um herói que lutava contra monstros.            \n";
-    std::cout << "Ele precisava coletar itens mágicos para aumentar seu poder.\n";
-    std::cout << "Mas havia muitos obstáculos pelo caminho.                   \n";
-    std::cout << "Ele enfrentou desafios e superou todos eles.                \n";
-    std::cout << "Agora ele é o maior herói de todos os tempos!               \n";
-    std::cout << "                                                            \n";
-    std::cout << "Pressione qualquer tecla para voltar ao menu.               \n";
+    std::cout << "Você é Miles Upshur, um repórter investigativo com ambição que está a ponto de conhecer o Inferno na Terra. \n";
+    std::cout << "Sempre pronto a se arriscar aprofundando-se nas histórias que nenhum outro jornalista se atreveria a investigar, \n";
+    std::cout << "você vai descobrir o segredo negro no coração do Manicômio de Monte Massive.\n";
+    std::cout << "Fique vivo o quanto puder, gravando tudo. \n";
+    std::cout << "Você não é um lutador; para vasculhar os horrores de Monte Massive e expor a verdade, \n";
+    std::cout << "suas únicas escolhas são correr, se esconder ou morrer. \n";
+    std::cout << "\n";
+    std::cout << "Pressione qualquer tecla para voltar ao menu.\n";
 }
 
-void StoryScreen::handleInput(char choice) {
+void StoryScreen::handleInput(char choice) 
+{
     context->setState(new MainMenuScreen(context));
 }

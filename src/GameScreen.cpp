@@ -23,10 +23,11 @@ void GameScreen::display() {
     std::cout << "=== Faça sua escolha ===\n";
     std::cout << "1. Sim\n";
     std::cout << "2. Não\n";
-    std::cout << "0. Sair do Jogo\n";
+    std::cout << "0. Sair para o menu\n";
 }
 
-void GameScreen::checkGameOver() {
+void GameScreen::checkGameOver() 
+{
     if (!currentNode->left && !currentNode->right) 
     {
         std::string message;
@@ -46,7 +47,8 @@ void GameScreen::checkGameOver() {
     }
 }
 
-void GameScreen::handleInput(char choice) {
+void GameScreen::handleInput(char choice) 
+{
     switch (choice) {
         case '1':
             if (currentNode && currentNode->right) {

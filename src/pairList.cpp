@@ -5,37 +5,6 @@
 #include "pairList.hpp"
 
 namespace pairList {
-    
-    /*
-    PlayerListNode* insertEnd(PlayerListNode*& head, const PlayerData& data) {
-
-        PlayerListNode* newNode = new PlayerListNode(data);
-        std::cout << "DEBUG: pairList::insertEnd chamada. newNode: " << newNode << std::endl;
-        _getch();
-
-        if(newNode == nullptr) {
-            std::cout << "erro de alocação" << std::endl;
-            return nullptr; 
-        }
-        
-        if(head == nullptr) {
-            head = newNode;
-        } 
-        else {
-            PlayerListNode* current = head; 
-
-            while(current->next != nullptr) { 
-                current = current->next;
-            }
-            current->next = newNode;
-            newNode->prev = current;
-        }
-
-        std::cout << "DEBUG: Nodo inserido com sucesso. Retornando newNode." << std::endl;
-        _getch();
-        return newNode; 
-    }
-    */
 
     PlayerListNode* insertSorted(PlayerListNode** head, const PlayerData& data) 
     {

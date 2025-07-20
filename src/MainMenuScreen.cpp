@@ -10,7 +10,8 @@ MainMenuScreen::MainMenuScreen(ScreenContext* ctx)
   : IScreen(ctx)
 {}
 
-void MainMenuScreen::display() {
+void MainMenuScreen::display() 
+{
     std::cout << "=== Menu Principal ===\n";
     std::cout << "1. Jogar\n";
     std::cout << "2. Historia\n";
@@ -19,7 +20,8 @@ void MainMenuScreen::display() {
     std::cout << "0. Sair\n";
 }
 
-void MainMenuScreen::handleInput(char choice) {
+void MainMenuScreen::handleInput(char choice) 
+{
     switch (choice) {
         case '1':
             context->setState(new GameScreen(context));

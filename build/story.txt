@@ -1,15 +1,61 @@
-100;Você acorda em uma cabana escura. Sair pela porta?;1
-150;Você ouve passos lá fora. Esconder-se debaixo da cama?;1
-50;Você encontra uma faca na cozinha. Pegar a faca?;1
-175;A porta se abre lentamente. Ficar imóvel?;1
-125;Você vê uma janela aberta. Pular pela janela?;1
-75;Você ouve um grito vindo do porão. Investigar?;1
-25;Você encontra um telefone sem sinal. Tentar consertar?;1
-188;Você sobreviveu à noite!;1
-162;A criatura te encontra.;0
-138;Você escapa pela floresta!;1
-112;Você cai e se machuca.;0
-88;Você encontra um sobrevivente!;1
-62;O grito era uma armadilha.;0
-38;O telefone funciona! Resgate a caminho.;1
-12;Você faz barulho e é encontrado.;0
+10000;Chegando ao Asilo Mount Massive, a entrada principal está trancada, mas há uma janela aberta. Entrar pela janela?;1
+5000;Você decide não arriscar a janela. Tentar voltar para o carro ou procurar outra rota a pé nos arredores do asilo?;1
+3000;Você procura outra rota a pé, mas escorrega em um barranco escuro e cai, quebrando a perna. Os internos te encontram.;0
+7000;Você decide que a matéria não vale sua vida, entra no carro e vai embora. O mistério de Mount Massive nunca será revelado por você.;1
+15000;Lá dentro, o horror é real. Corpos e caos. Você ouve um barulho pesado e gutural se aproximando rapidamente. Esconder-se em um armário próximo?;1
+12500;Você tenta confrontar o que quer que esteja vindo. É Chris Walker, uma variante colossal. Ele te agarra e te arremessa pela sala.;0
+20000;Você está no armário. A criatura se aproxima. O melhor a fazer é ficar em silêncio absoluto e esperar. Tentar espiar pela fresta?;1
+17000;Você prende a respiração e não se move. A criatura passa e vai embora. Você está seguro por enquanto. Ao sair, você encontra um soldado moribundo. Ele te avisa para sair. Para avançar, você precisa reativar a energia no porão. Descer para a escuridão?;1
+25000;Ao se mover para espiar, você pisa em um caco de vidro. O som denuncia sua posição. Chris Walker arranca a porta do armário com violência.;0
+16000;Você ignora o soldado e tenta voltar. A porta pela qual você entrou agora está bloqueada por destroços. Você está preso. Chris Walker te encontra.;0
+18000;Você está no porão escuro. Sua câmera com visão noturna é sua única amiga, mas a bateria está acabando. Você vê uma bateria sob uma prateleira instável. Tentar pegá-la?;1
+17500;Você decide economizar bateria e avança na escuridão. Você tropeça em um fio, fazendo um barulho que atrai um interno. Ele te ataca no escuro.;0
+19000;Você consegue alcançar a bateria sem problemas. Usando sua câmera, você acha o gerador de energia, ligar o gerador?;1
+18500;Você hesita em ligar o gerador. O silêncio e a escuridão parecem mais seguros que o barulho que a energia pode causar. Você tenta avançar no escuro, mas logo percebe que todas as portas automáticas estão travadas. Sem energia, você está preso nesse labirinto subterrâneo. Os passos pesados de Chris Walker ecoam novamente. Esconder-se?;1
+18450;Você se agacha atrás de algumas caixas. A tensão é insuportável. Walker passa lentamente, farejando o ar. Quando tudo parece calmo, você tenta escapar por uma passagem lateral. Mas tropeça.;0
+18550;O som da queda ecoa como um tiro. Chris Walker te vê. Você corre, mas sem energia, as portas não abrem. Ele te alcança e esmaga seu corpo contra a parede de concreto. Sua jornada termina na escuridão.;0
+19500;Após ligar a energia, você encontra o 'Padre' Martin. Ele aponta para o sistema de sprinklers e te dá uma chave. "Vá para os esgotos", ele diz. Ir para os esgotos?;1
+19250;Você desconfia do Padre e decide procurar outro caminho. Anda pelos corredores agora iluminados. Entra em uma ala lacrada chamada "Observação Psiquiátrica". Entrar?;1
+19200;Você ignora a ala e tenta forçar uma saída por uma janela alta com barras. Ao tentar escalá-la, uma mão te agarra e te puxa de volta para dentro. É Chris Walker. Você morre esmagado.;0
+19300;Dentro da ala, você encontra paredes cobertas de símbolos com sangue e vídeos de pacientes sendo torturados. Um interno sussurra: "O Projeto está no teto...". Subir as escadas para o telhado?;1
+19270;Você recua e volta ao corredor, mas Chris Walker, atraído pelo som da porta, te encontra. Você é partido ao meio.;0
+19400;No telhado, a chuva aperta. Você vê uma claraboia aberta. Há pegadas de sangue indo em direção a ela. Descer pela claraboia?;1
+19350;Você tenta escalar para outro lado do telhado e escorrega. Cai três andares. Sua câmera quebra e seu tornozelo também. Um interno te encontra e finaliza o serviço.;0
+19410;Você cai na ala "Experimentos Cognitivos". Há telas ligadas e gravações antigas. Você vê uma cela com uma criança catatônica. Tentar entrar na cela?;1
+19405;Você ignora a cela e segue adiante. Um alarme toca — movimento detectado. Torres automáticas abrem fogo e te destroem.;0
+19460;Na cela, a criança permanece imóvel, olhos fixos no teto. Ao lado dela, uma fita VHS coberta de poeira. Você encontra um aparelho ainda funcional em uma sala próxima. Reproduzir a fita?;1
+19430;Você não toca na fita. Ao invés disso, examina o quarto: encontra papéis rasgados com desenhos infantis de uma figura preta flutuando sobre camas de hospital. Seguir os desenhos?.;1
+19420;Você ignora os desenhos e segue explorando por conta própria. Os corredores parecem se repetir, como um labirinto sem fim. Cada porta leva de volta à mesma sala. Aos poucos, você percebe: está preso em um loop. Sua mente começa a falhar. Você não morre, mas também nunca mais escapa.;0
+19450;Seguindo os desenhos infantis, você chega a uma porta atrás de um painel removido. Lá dentro, um diário de um médico fala de "algo sem nome" que infecta pensamentos. Ele termina dizendo: "A única saída é pelo corpo, não pela mente." Você encontra uma chave marcada como “PORTÃO A”. Usar essa rota?;1
+19445;Você queima o diário, acreditando que ele é apenas delírio. Uma figura negra atravessa o corredor. Quando você percebe, já está dentro de uma cela, sem lembrar como chegou. O ciclo recomeça.;0
+19455;Você usa a chave no portão externo. O som de alarmes ecoa pelo asilo, mas nenhuma alma tenta impedi-lo. Ao sair, você encontra policiais entrando. Um deles te olha fixamente e diz: “Você... você não deveria estar vivo.” Você desmaia, mas desperta dias depois em um hospital. Sem gravações, sem provas. Só cicatrizes e memórias que ninguém acredita.;1
+19480;A gravação mostra sessões médicas. Pacientes gritando, contorcendo-se. Em um frame desfocado, algo passa voando atrás dos médicos. Um deles murmura: “É como se... estivesse dentro de todos nós.” A imagem distorce. Você começa a ouvir estática mesmo após desligar o aparelho. Ignorar e seguir?;1
+19470;Você pausa o vídeo antes do fim, desconfiado do som em loop. Atrás de você, o monitor se liga sozinho, mostrando imagens em tempo real da cela — mas agora está vazia. Você tenta sair da sala. A porta não abre. Você desaparece, assim como a criança.;0
+19490;A fita termina com um sussurro quase inaudível: “Aceite.” De repente, você se vê caminhando por corredores vazios, sem saber como chegou ali. Você não sente medo. Nem dor. Só silêncio. Você se tornou parte do asilo. Um observador. Um receptáculo. Mas não está mais vivo — apenas... presente.;0
+19700;Os esgotos são um labirinto fétido. A água está na altura da cintura e você ouve algo se movendo sob a superfície. Chris Walker aparece novamente, te caçando na água. Sua única chance é se espremer por uma passagem estreita. Entrar na passagem apertada?;1
+19600;Você tenta nadar para longe, mas na água você é lento demais. Walker te alcança e te afoga na água suja.;0
+19800;Você escapa de Walker, mas o caminho te leva para a Ala Médica. Você ouve uma voz sádica: "Amigo!". É o Dr. Trager. Tentar correr?;1
+19750;Você tenta se esconder em um dos quartos, mas Trager conhece a ala melhor que você. Ele te encontra e te amarra em uma cadeira de rodas para 'tratar' de você.;0
+19900;Trager te vê! Uma perseguição frenética começa. Ele é rápido. Você vê um elevador com a porta quase fechando. Correr para o elevador?;1
+19850;Você corre sem rumo, mas Trager joga uma maca em seu caminho. Você tropeça e ele te captura, rindo sadicamente.;0
+19950;Você entra no elevador no último segundo! Trager tenta te seguir, mas a porta o esmaga. Você conseguiu a chave do elevador principal. Com a chave de Trager, você sobe para o pátio. Está chovendo. O Padre Martin deixou um rastro de sangue para a capela. Seguir o rastro?;1
+19930;Você tenta encontrar uma saída pelo portão principal, mas ele está eletrificado. Você morre eletrocutado ao tocar na cerca.;0
+19970;O caminho para a capela está bloqueado por uma fogueira. Você precisa encontrar uma maneira de passar. Você vê uma válvula de água em uma torre de vigia próxima. Subir na torre?;1
+19960;Você tenta correr através do fogo. Sua roupa pega fogo e você se torna uma tocha humana, para o deleite dos internos que assistem.;0
+19990;Você sobe e gira a válvula, apagando o fogo. Na capela, você vê o Padre Martin em uma cruz, ele ateia fogo em si mesmo. Ele te diz para ir ao laboratório subterrâneo. Acreditar nele?;1
+19980;Você se recusa a acreditar na história do padre e busca uma saída por conta própria. Tentar voltar ao pátio?;1
+19985;Você volta ao pátio na chuva. Tudo parece mais calmo. Mas há sombras se movendo nas janelas. Escalar o muro com arame?;1
+19983;Você estava entrando de volta pela lateral. Uma figura encapuzada te puxa para dentro. É outro “padre”, um fanático sobrevivente que acredita que um tal "Walrider" é um deus. Ele te “consagra”.;0
+19988;Você escala o muro e se fere nos arames. Mas você escapa — ferido, traumatizado, mas vivo. Você publica parte da verdade. O mundo não acredita.;1
+19974;Você sobe até uma ala condenada, cheia de registros queimados e portas trancadas. Você encontra um diário de um paciente que falava do “parasita da alma”. O projeto foi desenvolvido pela corporação Murkoff, uma megacorporação farmacêutica e de tecnologia biomédica. Investigar mais?;1
+19972;Você tenta descansar em uma das camas. Durante o sono, um interno silencioso e perturbado te observa. Horas depois, você acorda com os braços amarrados à cama e um bisturi cirúrgico sobre seu peito. Ele sussurra: "Agora é a sua vez de ser o experimento".;0
+19978;Você continua investigando. Encontra uma sala secreta com gravações de experimentos. É o projeto Walrider, um experimento secreto e brutal conduzido dentro do Asilo Mount Massive, com o objetivo de criar uma entidade invisível e sobrenatural a partir de tecnologia e manipulação mental. Tentar voltar ao laboratório?;1
+19976;Você decide fugir com vida e as provas. Mas ao sair da ala, é confrontado por guardas encapuzados da própria Murkoff. Eles te capturam e levam para interrogatório. Tentar escapar da cela improvisada?;1
+19975;Você finge cooperar, mas é injetado com um novo sedativo. Você acorda horas depois, com a mente turva. Você agora é um deles, obedecendo ordens sem saber por quê.;0
+19977 ;Você tenta fugir e, usando peças soltas da cadeira, força a porta. Na fuga, você vê câmeras, salas de tortura e armários cheios de medicamentos experimentais. Você escapa por um duto. Pelos dutos, você chega ao escritório principal. Encontra um servidor de dados e copia tudo. As provas são claras: Murkoff testa técnicas ilegais em pacientes para fins militares. Você escapa do prédio, e o vídeo vai ao ar dias depois. Escândalo global.;1
+19979; Você corre, mas já é tarde. O som metálico do Walrider ecoa pelos corredores como um rugido distante, mas crescente. Seus passos são frenéticos, sua respiração ofegante. A visão noturna da câmera pisca com a bateria no fim. Ao virar uma esquina, o ar fica mais denso. Frio. O tempo parece parar. Uma sombra negra emerge da parede e te envolve. Você grita, mas não há som. O corpo treme, cada célula sendo esmagada, manipulada, absorvida. O mundo escurece. Você deixa de ser você. Agora, você é parte dele.;0
+19995;Você pega o elevador para o laboratório. Lá, você encontra o Dr. Wernicke. Ele explica sobre o Walrider, uma entidade sobrenatural criada por experimentos científicos conduzidos pela Murkoff Corporation no Asilo Mount Massive. Ele é um enxame de nanomáquinas controlado pela mente de um paciente hospedeiro, Billy Hope. Alimentado por traumas e estados psíquicos extremos, o Walrider é letal, pode atravessar paredes, e ficar quase invisível. Dr. Wernicke diz que o Walrider representa os perigos de tentar fundir ciência e espiritualidade sem limites éticos e deve ser destruído. Ele pede para você desligar o suporte vital de Billy Hope. Confiar nele e desligar?;1
+19993;Você se recusa a ajudar Wernicke, acreditando que é outra armadilha. O Walrider, sem controle, te percebe como uma ameaça e te desintegra.;0
+19998;Você desliga o suporte vital. O Walrider, agora sem hospedeiro, te ataca violentamente e entra no seu corpo. Você se tornou o novo hospedeiro. Você manca para a saída?;1
+19996;Seu corpo rejeita o Walrider. A possessão falha e seu corpo se desfaz em um nível celular. Uma morte agonizante.;0
+19999;Na porta de saída, luzes se acendem. Mas soldados gritam "Ele é o hospedeiro! Matem-no!". Eles abrem fogo. Você cai, mas uma névoa negra emana de você. Os gritos começam enquanto a tela escurece. Você sobreviveu, mas a que custo?;1

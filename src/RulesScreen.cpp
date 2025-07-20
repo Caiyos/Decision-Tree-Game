@@ -7,16 +7,19 @@ RulesScreen::RulesScreen(ScreenContext* ctx)
   : IScreen(ctx)
 {}
 
-void RulesScreen::display() {
+void RulesScreen::display() 
+{
     std::cout << "Regras do jogo:                                            \n";
-    std::cout << "1. Escolha suas ações sabiamente.                          \n";
-    std::cout << "2. Colete itens para aumentar seu poder.                   \n";
-    std::cout << "3. Enfrente desafios e inimigos pelo caminho.              \n";
-    std::cout << "4. Você pode voltar ao menu a qualquer momento.            \n";
+    std::cout << "1. Descubra o que está acontecendo no Asilo Mount Massive. \n";
+    std::cout << "2. Faça escolhas que afetarão o resultado do jogo. \n";
+    std::cout << "3. Use sua inteligência e sorte para sobreviver aos horrores. \n";
+    std::cout << "4. Explore o ambiente e colete informações. \n";
+    std::cout << "5. O jogo termina quando você alcançar um dos finais. \n";
     std::cout << "                                                           \n";
     std::cout << "Pressione qualquer tecla para voltar ao menu.              \n";
 }
 
-void RulesScreen::handleInput(char choice) {
+void RulesScreen::handleInput(char choice) 
+{
     context->setState(new MainMenuScreen(context));
 }

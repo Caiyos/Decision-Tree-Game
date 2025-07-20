@@ -1,4 +1,4 @@
-oi;10;9;1
+caiyo;70;40;30
+manga;10;9;1
 banana;9;8;1
-caiyo;8;6;2
-teste;0;0;0
+uva;3;0;3

@@ -9,7 +9,8 @@ TreeScreen::TreeScreen(ScreenContext* ctx)
     gameTreeRoot = context->getGameTreeRoot();
 }
 
-void TreeScreen::display() {
+void TreeScreen::display() 
+{
     std::cout << "=== Árvore em ordem ===\n";
     
     if (gameTreeRoot) {

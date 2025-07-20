@@ -9,7 +9,8 @@ ListScreen::ListScreen(ScreenContext* ctx)
     gameListHead = context->getGameListHead();
 }
 
-void ListScreen::display() {
+void ListScreen::display() 
+{
     std::cout << "=== Lista original ===\n";
 
     simpleList::printList(gameListHead);
@@ -17,6 +18,7 @@ void ListScreen::display() {
     std::cout << "Pressione qualquer tecla para voltar ao menu anterior.\n";
 }
 
-void ListScreen::handleInput(char choice) {
+void ListScreen::handleInput(char choice) 
+{
     context->setState(new TechnicalInfoScreen(context));
 }

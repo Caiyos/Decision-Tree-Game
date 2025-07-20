@@ -40,7 +40,7 @@ void DecisionTreeGame::buildList()
         return;
     }
 
-    char line[256];
+    char line[4096];
 
     while (fgets(line, sizeof(line), file)) 
     {
@@ -74,17 +74,12 @@ void DecisionTreeGame::buildTree()
 
 void DecisionTreeGame::loadAllPlayersData() 
 {
-    // std::cout << "DEBUG: Tentando abrir player_data.txt para leitura...\n";
     FILE* file = fopen("player_data.txt", "r");
     if (!file) {
         std::cerr << "player_data.txt não encontrado ou não pôde ser aberto. Iniciando sem dados de jogadores.\n";
-        // std::cout << "DEBUG: Nao abriu para leitura. Retornando.\n";
         _getch();
         return;
     }
-
-    // std::cout << "DEBUG: player_data.txt aberto para leitura com sucesso.\n";
-    // _getch();
 
     char line[256]; 
 
@@ -121,8 +116,6 @@ void DecisionTreeGame::loadAllPlayersData()
     }
 
     fclose(file); 
-    // std::cout << "DEBUG: player_data.txt fechado apos leitura.\n";
-    // _getch();
 }
 
 void DecisionTreeGame::saveAllPlayersData() 
@@ -132,10 +125,6 @@ void DecisionTreeGame::saveAllPlayersData()
         std::cerr << "Erro: Não foi possível abrir player_data.txt para escrita\n";
         return;
     }
-    // std::cout << "Arquivo abriu com sucesso\n";
-
-    std::cout << "Quantidade de Jogadores: " << pairList::size(context.getGamePlayerListHead()) << "\n";
-    // _getch();
 
     pairList::PlayerListNode* current = context.getGamePlayerListHead();
     while (current != nullptr) 
@@ -156,13 +145,16 @@ void DecisionTreeGame::saveAllPlayersData()
 PlayerData* DecisionTreeGame::getCurrentPlayerData() 
 {
     pairList::PlayerListNode* node = pairList::findPlayerNode(playerListHead, currentPlayerName);
-    if (node != nullptr) {
+    if (node != nullptr) 
+    {
         return &(node->data); // Retorna um ponteiro para os dados do PlayerData dentro do nó
     }
+
     return nullptr; 
 }
 
-void DecisionTreeGame::deleteTree(searchTree::TreeNode* node) {
+void DecisionTreeGame::deleteTree(searchTree::TreeNode* node) 
+{
     if (node == nullptr) return;
 
     deleteTree(node->left);
@@ -170,7 +162,8 @@ void DecisionTreeGame::deleteTree(searchTree::TreeNode* node) {
     delete node;
 }
 
-void DecisionTreeGame::deleteList(simpleList::ListNode* node) {
+void DecisionTreeGame::deleteList(simpleList::ListNode* node) 
+{
     while (node != nullptr) {
         simpleList::ListNode* temp = node;
         node = node->next;
@@ -178,7 +171,8 @@ void DecisionTreeGame::deleteList(simpleList::ListNode* node) {
     }
 }
 
-void DecisionTreeGame::deletePlayerList(pairList::PlayerListNode* node) {
+void DecisionTreeGame::deletePlayerList(pairList::PlayerListNode* node) 
+{
     while (node != nullptr) {
         pairList::PlayerListNode* temp = node;
         node = node->next;
@@ -209,18 +203,20 @@ void DecisionTreeGame::run()
         context.handleInput(choice);
         system("cls");
 
-        if (context.isExitRequested()) {
+        if (context.isExitRequested()) 
+        {
             exitGame();
             break;
         }
 
-        if (context.getCurrentPlayerDataPtr() == nullptr && !context.getCurrentPlayerName().empty()) {
-            //Se tiver um jogador logado mas não tiver os dados 
+        if (context.getCurrentPlayerDataPtr() == nullptr && !context.getCurrentPlayerName().empty()) //Se tiver um jogador logado mas não tiver os dados
+        {
             currentPlayerName = context.getCurrentPlayerName(); 
             context.setCurrentPlayerDataPtr(this->getCurrentPlayerData());
         }
 
-        if (context.hasSaveDataRequest()) {
+        if (context.hasSaveDataRequest()) 
+        {
             saveAllPlayersData();           
             context.resetSaveDataRequest(); 
         }

@@ -14,10 +14,6 @@ namespace searchTree {
 
     TreeNode* insert(TreeNode *root, std::string text, int id, bool alive);
 
-    // Node* remove(Node *root, int key);
-
-    // int search(Node *root, int key);
-
     void printTree(TreeNode* root);
     
 }

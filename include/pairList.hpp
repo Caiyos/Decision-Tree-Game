@@ -18,10 +18,6 @@ namespace pairList {
         {}
     };
 
-    /*
-    PlayerListNode* insertEnd(PlayerListNode*& head, const PlayerData& data); 
-    */
-
     PlayerListNode* insertSorted(PlayerListNode** head, const PlayerData& data);
 
     PlayerListNode* reorderList(PlayerListNode* head);

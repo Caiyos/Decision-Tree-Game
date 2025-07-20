@@ -44,23 +44,16 @@ void PlayerNameScreen::handleInput(char input)
             char choice = _getch();
             std::cout << choice << "\n";
 
-            if (choice == 's' || choice == 'S') {
+            if (choice == 's' || choice == 'S') 
+            {
                 context->setCurrentPlayerName(enteredName);
                 context->setCurrentPlayerDataPtr(&(existingPlayerNode->data));
-
-                /*
-                if (context->getCurrentPlayerDataPtr()) {
-                    std::cout << "DEBUG: PlayerDataPtr is VALID for player: " << context->getCurrentPlayerDataPtr()->name << std::endl;
-                } else {
-                    std::cout << "DEBUG: PlayerDataPtr is NULL after setting!" << std::endl;
-                }
-                _getch();
-                */
 
                 context->setState(new MainMenuScreen(context));
                 return;
             } 
-            else {
+            else 
+            {
                 std::cout << "\nPor favor, escolha um nome diferente.\n";
                 _getch();
                 return;
@@ -69,34 +62,22 @@ void PlayerNameScreen::handleInput(char input)
         else 
         {
             std::cout << "\nBem-vindo, " << enteredName << "! Criando novo progresso.\n";
-            Sleep(1000); // Simula um pequeno atraso para a experiência do usuário
+            Sleep(1000);
 
             context->setCurrentPlayerName(enteredName);
 
             PlayerData newPlayer(enteredName, 0, 0, 0);
 
-            // std::cout << "DEBUG: newPlayer criada. Nome: " << newPlayer.name << std::endl; // PAUSA 2
-            // _getch(); // SE O CRASH FOR AQUI, o problema é newPlayer (pouco provável)
-
             pairList::insertSorted(&playerListHead, newPlayer);
 
             pairList::PlayerListNode* newNode = pairList::findPlayerNode(playerListHead, enteredName);
 
-            if (newNode) { // Testa se o player foi adicionado
+            if (newNode) // Testa se o player foi adicionado
+            { 
                 context->setCurrentPlayerDataPtr(&(newNode->data));
                 context->requestDataSave();
-                
-                /*
-                if (context->getCurrentPlayerDataPtr()) {
-                    std::cout << "DEBUG: PlayerDataPtr is VALID for player: " << context->getCurrentPlayerDataPtr()->name << std::endl;
-                } else {
-                    std::cout << "DEBUG: PlayerDataPtr is NULL after setting!" << std::endl;
-                }
-                _getch();
-                */
             }
 
-            // _getch();
             context->setState(new MainMenuScreen(context));
         }
 

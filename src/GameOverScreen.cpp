@@ -11,7 +11,8 @@ GameOverScreen::GameOverScreen(ScreenContext* ctx)
     message = context->getFinalMessage();
 }
 
-void GameOverScreen::display() {
+void GameOverScreen::display() 
+{
     std::cout << "=== Fim de Jogo ===\n";
     std::cout << message << "\n\n";
     std::cout << "Escolha uma opção:\n";
@@ -20,7 +21,8 @@ void GameOverScreen::display() {
     std::cout << "0. Sair para o Menu Principal\n";
 }
 
-void GameOverScreen::handleInput(char choice) {
+void GameOverScreen::handleInput(char choice) 
+{
     switch (choice) {
         case '1':
             context->setFinalMessage(""); 
@@ -30,6 +32,7 @@ void GameOverScreen::handleInput(char choice) {
             context->setState(new TechnicalInfoScreen(context));
             break;
         case '0':
+            context->setFinalMessage("");
             context->setState(new MainMenuScreen(context));
             break;
         default:
