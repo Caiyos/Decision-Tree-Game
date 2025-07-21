@@ -1,5 +1,5 @@
 osi;110;88;22
-caiyo;70;40;30
+caiyo;72;40;32
 manga;10;9;1
 banana;9;8;1
 uva;3;0;3

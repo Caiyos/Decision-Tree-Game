@@ -3,7 +3,7 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build all",
-            "command": "C:/MinGW/bin/g++.exe",
+            "command": "C:/MinGW64/bin/g++.exe",
             "args": [
                 "-Wall",
                 "-fexceptions",

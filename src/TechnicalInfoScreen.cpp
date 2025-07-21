@@ -15,7 +15,7 @@ void TechnicalInfoScreen::display() {
     std::cout << "=== Informações técnicas ===\n";
     std::cout << "1. Mostrar a lista simplesmente encadeada que dá origem à árvore\n";
     std::cout << "2. Listar a árvore em ordem\n";
-    std::cout << "3. Score do jogador\n";
+    std::cout << "3. Buscar por nome de jogador\n";
     std::cout << "4. Mostrar ranking\n";
     std::cout << "0. Voltar para o menu anterior\n";
 }
