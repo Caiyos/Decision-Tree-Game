@@ -33,7 +33,7 @@ void MainMenuScreen::handleInput(char choice)
             context->setState(new RulesScreen(context));
             break;
         case '4':
-            context->setState(new SinglePlayerStatsScreen(context));
+            context->setState(new SinglePlayerStatsScreen(context, context->getCurrentPlayerName()));
             break;
         case '0':
             context->requestExit();

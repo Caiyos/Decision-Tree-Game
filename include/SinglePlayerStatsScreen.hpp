@@ -10,13 +10,9 @@
 class SinglePlayerStatsScreen : public IScreen {
 private:
     std::string playerName;
-
-    PlayerData* player;
-
-    pairList::PlayerListNode* playerListHead;
     
 public:
-    SinglePlayerStatsScreen(ScreenContext* ctx);
+    SinglePlayerStatsScreen(ScreenContext* ctx, const std::string& name);
     void display() override;
     void handleInput(char choice) override;
 };

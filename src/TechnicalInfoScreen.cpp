@@ -29,7 +29,7 @@ void TechnicalInfoScreen::handleInput(char choice) {
             context->setState(new TreeScreen(context));
             break;
         case '3':
-            context->setState(new SinglePlayerStatsScreen(context));
+            context->setState(new SinglePlayerStatsScreen(context, ""));
             break;
         case '4':
             context->setState(new RankingScreen(context));
