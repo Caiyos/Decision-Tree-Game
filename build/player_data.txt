@@ -1,0 +1,7 @@
+osi;110;88;22
+caiyo;72;40;32
+manga;10;9;1
+banana;9;8;1
+uva;3;0;3
+Joseph;3;1;2
+neog;0;0;0
